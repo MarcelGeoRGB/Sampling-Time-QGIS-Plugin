@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/sampling_time" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>

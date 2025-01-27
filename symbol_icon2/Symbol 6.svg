@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28.79" height="28.79"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:qgis="http://www.qgis.org/gml"
+     version="1.1">
+  <rect x="0.17" y="0.17" width="28.46" height="28.46"
+        fill="param(fill) #ffffff"
+        fill-opacity="param(fill-opacity) 1"
+        stroke="param(outline) #373435"
+        stroke-width="param(outline-width) 0.5"
+        stroke-opacity="param(outline-opacity) 1"
+        stroke-miterlimit="2.61313"/>
+  <rect x="5.83" y="5.83" width="17.13" height="17.13"
+        fill="none"
+        stroke="param(outline) #373435"
+        stroke-width="param(outline-width) 0.5"
+        stroke-opacity="param(outline-opacity) 1"
+        stroke-miterlimit="2.61313"/>
+  <line x1="14.4" y1="5.83" x2="14.4" y2="22.96"
+        stroke="param(outline) #373435"
+        stroke-width="param(outline-width) 0.5"
+        stroke-opacity="param(outline-opacity) 1"
+        stroke-miterlimit="2.61313"/>
+  <line x1="5.83" y1="14.4" x2="22.96" y2="14.4"
+        stroke="param(outline) #373435"
+        stroke-width="param(outline-width) 0.5"
+        stroke-opacity="param(outline-opacity) 1"
+        stroke-miterlimit="2.61313"/>
+</svg>

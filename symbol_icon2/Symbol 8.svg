@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25.57" height="25.57"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:qgis="http://www.qgis.org/gml"
+     version="1.1">
+  <polygon points="0.24,25.42 25.33,25.42 12.79,0.33"
+           fill="param(fill) #ffffff"
+           fill-opacity="param(fill-opacity) 1"
+           stroke="param(outline) #373435"
+           stroke-width="param(outline-width) 0.5"
+           stroke-opacity="param(outline-opacity) 1"
+           stroke-miterlimit="2.61313"/>
+  <circle cx="12.8" cy="15.84" r="3.42"
+          fill="none"
+          stroke="param(outline) #373435"
+          stroke-width="param(outline-width) 0.5"
+          stroke-opacity="param(outline-opacity) 1"
+          stroke-miterlimit="2.61313"/>
+</svg>

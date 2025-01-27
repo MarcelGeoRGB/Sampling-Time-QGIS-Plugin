@@ -1,0 +1,3157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SamplingDialogBase</class>
+ <widget class="QDialog" name="SamplingDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>970</width>
+    <height>775</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>970</width>
+    <height>775</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>970</width>
+    <height>775</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Sampling Time</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>770</width>
+     <height>110</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>770</width>
+     <height>110</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>770</width>
+     <height>110</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame#frame {
+    background-color: #cccaca;  /* Gris oscuro */
+    border: 1px solid black;    /* Borde negro opcional */
+}
+
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label1">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>201</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="text">
+     <string>Select Shapefile for Sampling:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBoxshpsampling">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>201</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButtonshpsampling">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>30</y>
+      <width>31</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label2">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>10</y>
+      <width>231</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Exclusion Areas for Sampling:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonexclusion">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>30</y>
+      <width>181</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Click to select</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditsamplelabel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>151</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>201</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter Sample Label Root:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBoxsymbol">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>80</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>60</y>
+      <width>161</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Sample Symbol:</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listWidgetexclusion">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>30</y>
+      <width>181</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>10</y>
+      <width>201</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Doble click to remove feature:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonsavelabel">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>80</y>
+      <width>93</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save Label</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonsavesymbol">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>80</y>
+      <width>93</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save Symbol</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_58">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>10</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Symbol:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushbuttonsymbol">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>30</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    font-size: 20px;  /* Tamaño de la fuente */
+    font-weight: bold;  /* Negrita */
+    color: #080808;  /* Color azul */
+}</string>
+    </property>
+    <property name="text">
+     <string>⭳</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>10</width>
+      <height>10</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonlicense">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>80</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #080808;
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+QPushButton:hover {
+    background-color: #545454;
+}
+QPushButton:pressed {
+    background-color: #080808;
+}</string>
+    </property>
+    <property name="text">
+     <string>About ST</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>130</y>
+     <width>930</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>930</width>
+     <height>600</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>930</width>
+     <height>600</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame#frame_2 {
+    background-color: #cccaca;  /* Gris oscuro */
+    border: 1px solid black;    /* Borde negro opcional */
+}
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>901</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>4</number>
+    </property>
+    <widget class="QWidget" name="tab_1">
+     <attribute name="title">
+      <string>Judgmental</string>
+     </attribute>
+     <widget class="QTextEdit" name="textEdit">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>150</y>
+        <width>881</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit {
+    background-color: #f2f5f7;
+    border: none;  /* Elimina el borde predeterminado */
+    padding: 5px;
+}
+
+QTextEdit {
+    border: 2px solid #A9A9A9;  /* Añade un borde personalizado */
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Judgmental Sampling Method:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Judgmental sampling empowers environmental professionals to leverage their expertise and site-specific knowledge to strategically select sampling points. This method is particularly valuable when investigating areas of suspected contamination, geological features, or environmental gradients that require focused characterization. Based on field observations, historical data, and professional experience, investigators can target locations most likely to yield meaningful environmental data or represent critical site conditions.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;By incorporating professional expertise and site understanding, this approach enhances the effectiveness of environmental investigations, especially in scenarios where targeting specific environmental conditions is essential. Judgmental sampling proves particularly useful during preliminary site assessments, source identification studies, or when refining conceptual site models. However, since it relies on professional judgment rather than statistical probability, results may not be representative of overall site conditions and statistical inferences about the broader study area should be made with caution.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;User Guide:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1. Select the shapefile containing the sampling area perimeter using the &amp;quot;Select shapefile for sampling&amp;quot; button.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2. (Optional) Add exclusion zones by clicking &amp;quot;Add Exclusion&amp;quot; and selecting shapefiles.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;3. Set the sample label prefix in the &amp;quot;Sample Label&amp;quot; field and click &amp;quot;Save Label&amp;quot;.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;4. Choose a symbol for sample points from the symbol dropdown and click &amp;quot;Save Symbol&amp;quot;.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;5. Select one of the sampling methods: Add Samples Manually, Add Samples by Coordinates, or Add Samples by File and follow the on-screen instructions.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBoxoutsidesampling">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Allow Outside Sampling</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_11">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>191</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #f5f5dc;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="pushButtonfinishedition">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>40</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Finish </string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxaddsamplesmanually">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>161</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Samples Manually:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonedition">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QFrame" name="frame_12">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>10</y>
+        <width>451</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #f5f5dc;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="pushButtonfinishcoordinates_judgmental">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>100</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEditxcoordinates_judgmental">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>40</y>
+         <width>91</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_27">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>40</y>
+         <width>101</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X Coordinate:</string>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="listWidgetlistofcoordinates_judgmental">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>30</y>
+         <width>161</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: white;
+</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="lineWidth">
+        <number>1</number>
+       </property>
+       <property name="midLineWidth">
+        <number>1</number>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxaddsamplesbycoordinates">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>10</y>
+         <width>211</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Samples by Coordinates:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_53">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>10</y>
+         <width>211</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Doble click to remove coordinates:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_28">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>70</y>
+         <width>101</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Y Coordinate:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEditycoordinate_judgmental">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>70</y>
+         <width>91</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonaddcoordinates_judgmental">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Coordinates</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QFrame" name="frame_13">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>10</y>
+        <width>221</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #f5f5dc;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="pushButtonfinishcoordinatesfile_judgmental">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>100</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonloadfilejudgmental">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Load File</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_55">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>21</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X :</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBoxcolumnx">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>70</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBoxcolumny">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>70</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_56">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>70</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Y :</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxaddsamplesbyfile">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>181</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Samples by file:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEditaddsamplesbyfile">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>40</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonaddcoordinatesfile_judgmental">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Coordinates</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Random</string>
+     </attribute>
+     <widget class="QFrame" name="frame_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>631</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #f5f5dc;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>10</y>
+         <width>161</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Number of Samples:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBoxnumberofsamples">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>10</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="keyboardTracking">
+        <bool>false</bool>
+       </property>
+       <property name="maximum">
+        <number>10000</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>40</y>
+         <width>191</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Minimum Sample Spacing (m):</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistancesamples">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>40</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>100000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>100</y>
+         <width>261</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Minimum Distance to Exclusion Zones (m):</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistanceexclusion">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>100</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>100000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonrandomsave">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>100</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Create Shapefile:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonrandomstart">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>40</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generate Samples:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonrandomreset">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>70</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Reset</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>New Sample Set:</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxaddsamplesrandomly">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>191</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Samples Randomly:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>70</y>
+         <width>251</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Minimum Distance to Perimeter (m):</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistanceperimeter">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>70</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>100000.000000000000000</double>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QCheckBox" name="checkBoxoutsidesamplingrandom">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>10</y>
+        <width>161</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Allow Outside Sampling</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>30</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>(only manually)</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="textEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>150</y>
+        <width>881</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit {
+    background-color: #f2f5f7;
+    border: none;  /* Elimina el borde predeterminado */
+    padding: 5px;
+}
+
+QTextEdit {
+    border: 2px solid #A9A9A9;  /* Añade un borde personalizado */
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Random Sampling Method:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Random sampling is a statistical method where sampling points are selected purely by chance across the environmental study area, ensuring that every possible sampling location has an equal probability of being chosen. This method provides an unbiased representation of environmental conditions by eliminating subjective selection criteria. In environmental investigations, random sampling locations are typically determined using coordinate systems and random number generators to select sampling points across the site.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This approach is particularly valuable for establishing background conditions, characterizing overall environmental quality, or determining average site conditions without preconceptions about spatial patterns or distribution of environmental parameters. By relying on randomization, it provides a statistically defensible basis for estimating site-wide conditions and making objective conclusions about environmental quality. The method is especially useful in environmental baseline studies, regulatory compliance monitoring, or when documenting general site conditions. However, it may require a larger number of samples to adequately characterize heterogeneous environmental conditions or to identify localized features of interest.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;User Guide:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1. Select the shapefile containing the sampling area perimeter using the &amp;quot;Select shapefile for sampling&amp;quot; button.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2. (Optional) Add exclusion zones by clicking &amp;quot;Add Exclusion&amp;quot; and selecting shapefiles.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;3. Set the sample label prefix in the &amp;quot;Sample Label&amp;quot; field and click &amp;quot;Save Label&amp;quot;.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;4. Choose a symbol for sample points from the symbol dropdown and click &amp;quot;Save Symbol&amp;quot;.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;5. Add samples by selecting 'Add Samples Randomly' and follow the on-screen instructions.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Systematic</string>
+     </attribute>
+     <widget class="QFrame" name="frame_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>671</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #f5f5dc;
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generate Samples:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonregularsystematicstart">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>70</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_20">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>111</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Create shapefile:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonregularsystematicsave">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>100</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxaddsamplessystematically">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>211</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Samples Systematically:</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistanceysamples">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>40</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>10000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_17">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>10</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X Sample spacing (m):</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistancexsamples">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>10</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>10000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_18">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>40</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Y Sample spacing (m):</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBoxanglesystematically">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>40</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="suffix">
+        <string>°</string>
+       </property>
+       <property name="maximum">
+        <number>180</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>131</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Grid Azimuth Angle: </string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistanceperimeterexclusionarea">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>100</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>10000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>100</y>
+         <width>261</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Minimum Distance to Exclusion Zones (m):</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistanceperimetersamplearea">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>70</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>10000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>70</y>
+         <width>261</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Minimum Distance to Perimeter (m):</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxoutsidesampling_zigzagsystematic">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>0</y>
+         <width>161</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Enable Zigzag Pattern 
+ in sampling</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QCheckBox" name="checkBoxoutsidesampling_systematic">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>20</y>
+        <width>181</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Allow Outside Sampling</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="textEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>150</y>
+        <width>881</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit {
+    background-color: #f2f5f7;
+    border: none;  /* Elimina el borde predeterminado */
+    padding: 5px;
+}
+
+QTextEdit {
+    border: 2px solid #A9A9A9;  /* Añade un borde personalizado */
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Systematic Sampling Method:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Systematic sampling in environmental investigations involves selecting sampling points at fixed intervals following a predetermined grid or pattern across the study area. This method provides comprehensive spatial coverage and is particularly effective for detecting environmental gradients, delineating contamination boundaries, and mapping the distribution of environmental parameters. The structured approach allows for consistent data collection across the site and facilitates the creation of environmental contour maps and spatial distribution analyses.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;While this method streamlines field operations and provides uniform coverage, its effectiveness may be compromised when environmental patterns coincide with the sampling interval, such as when geological features or contamination patterns align with the grid spacing. Such spatial periodicity can introduce systematic bias into the environmental characterization. However, these potential limitations can be addressed through various sampling design modifications, such as rotating the sampling grid, implementing zigzag sampling patterns, or using different intervals for north-south versus east-west directions. These adaptations help ensure that the sampling pattern captures the full range of environmental variability and prevents the grid from aligning with natural site features or contamination patterns, thereby enhancing the investigation's effectiveness.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;User Guide:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1. Select the shapefile containing the sampling area perimeter using the &amp;quot;Select shapefile for sampling&amp;quot; button.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2. (Optional) Add exclusion zones by clicking &amp;quot;Add Exclusion&amp;quot; and selecting shapefiles.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;3. Set the sample label prefix in the &amp;quot;Sample Label&amp;quot; field and click &amp;quot;Save Label&amp;quot;.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;4. Choose a symbol for sample points from the symbol dropdown and click &amp;quot;Save Symbol&amp;quot;.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;5. Add samples by selecting 'Add Samples Systematically' and follow the on-screen instructions.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Stratified</string>
+     </attribute>
+     <widget class="QFrame" name="frame_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>271</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #f5f5dc;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>161</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Min Samples per Stratum:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBoxnumberofstratifiedsamples">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>40</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>10000</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_22">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Min Sample Spacing (m):</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistancestratifiedsamples">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>70</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>100000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonstratifiedrandomsave">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>190</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_30">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Create Shapefile:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonstratifiedrandomstart">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>131</y>
+         <width>93</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_31">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>130</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generate Samples:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonstratifiedrandomreset">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>160</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Reset</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_32">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>160</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>New Sample Set:</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxaddstratifiedsamplesrandomly">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>261</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Stratified Samples Randomly:</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxadjustsamplesbysurfacearea">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>251</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Adjust Samples by Surface Area</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="label_33">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>40</y>
+        <width>211</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Min Distance to Perimeter (m):</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_29">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>70</y>
+        <width>231</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Min Distance to Exclusion Zones (m):</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBoxoutsidesampling_stratified">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>10</y>
+        <width>191</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Allow Outside Sampling</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_5">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>10</y>
+        <width>281</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #f5f5dc;
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_34">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>160</y>
+         <width>131</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generate Samples:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonstratifiedsystematicstart">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>160</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_35">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>131</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Create shapefile:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonstratifiedsystematicsave">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>190</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxaddstratifiedsamplessystematically">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>261</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Stratified Samples Systematically:</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistancestratifiedysamples">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>70</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>10000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_36">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X Sample spacing (m):</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistancestratifiedxsamples">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>40</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>10000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_37">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Y Sample spacing (m):</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBoxanglestratifiedsystematically">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>100</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="suffix">
+        <string>°</string>
+       </property>
+       <property name="maximum">
+        <number>180</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_38">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Grid Azimuth Angle: </string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxstratifiedsampling_zigzagsystematic">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>130</y>
+         <width>251</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Enable Zigzag Pattern in Sampling</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QDoubleSpinBox" name="doubleSpinBoxdistancestratifiedperimeter">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>40</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <double>100000.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="doubleSpinBoxdistancestratifiedexclusion">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>70</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <double>100000.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="textEdit_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>240</y>
+        <width>881</width>
+        <height>271</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit {
+    background-color: #f2f5f7;
+    border: none;  /* Elimina el borde predeterminado */
+    padding: 5px;
+}
+
+QTextEdit {
+    border: 2px solid #A9A9A9;  /* Añade un borde personalizado */
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Strafied Sampling Method:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Stratified sampling is a probabilistic sampling method particularly valuable in environmental studies, where the study area is first partitioned into distinct, non-overlapping subgroups (strata) based on environmental characteristics such as land use, soil type, topography, or expected concentration levels. Within each environmental stratum, samples are then independently collected using either random sampling (stratified random) or systematic sampling (stratified systematic) approaches. The sample size allocation can be implemented in two ways: either proportional to stratum size (proportional allocation), where larger environmental units receive more samples, or with equal sample sizes across all strata (equal allocation). This methodology ensures representation across all environmental conditions and generally yields more precise estimates than simple random sampling, particularly in areas characterized by high variability between different environmental zones but relatively uniform conditions within each zone. Stratified sampling proves particularly effective when the study area comprises distinct environmental subunits with characteristics that are relevant to the investigation objectives.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;User Guide:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1. Select the shapefile containing the sampling area perimeter using the &amp;quot;Select shapefile for sampling&amp;quot; button.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2. (Optional) Add exclusion zones by clicking &amp;quot;Add Exclusion&amp;quot; and selecting shapefiles.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;3. Set the sample label prefix in the &amp;quot;Sample Label&amp;quot; field and click &amp;quot;Save Label&amp;quot;.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;4. Choose a symbol for sample points from the symbol dropdown and click &amp;quot;Save Symbol&amp;quot;.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;5. Add samples by selecting either 'Add Stratified Samples Randomly' or 'Add Stratified Samples Systematically' and follow the on-screen instructions.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Cluster</string>
+     </attribute>
+     <widget class="QFrame" name="frame_9">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>271</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #f5f5dc;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_39">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>151</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Min Samples per Cluster:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBoxnumberofclustersamples">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>40</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>10000</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_40">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Min Sample Spacing (m):</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistanceclustersamples">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>70</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>100000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonclusterrandomsave">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>190</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_41">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>131</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Create Shapefile:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonclusterrandomstart">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>131</y>
+         <width>93</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_42">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>130</y>
+         <width>131</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generate Samples:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonclusterrandomreset">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>160</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Reset</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_43">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>160</y>
+         <width>131</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>New Sample Set:</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxaddclustersamplesrandomly">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>221</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Cluster Samples Randomly:</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxadjustclustersamplesbysurfacearea">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>231</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Adjust Samples by Surface Area</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QFrame" name="frame_10">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>10</y>
+        <width>281</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #f5f5dc;
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_44">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>160</y>
+         <width>151</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generate Samples:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonclustersystematicstart">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>160</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_45">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>151</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Create shapefile:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonclustersystematicsave">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>190</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxaddclustersamplessystematically">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>251</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Cluster Samples Systematically:</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistanceclusterysamples">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>70</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>10000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_46">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X Sample spacing (m):</string>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBoxdistanceclusterxsamples">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>40</y>
+         <width>62</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <double>10000.000000000000000</double>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_47">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Y Sample spacing (m):</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBoxangleclustersystematically">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>100</y>
+         <width>51</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="suffix">
+        <string>°</string>
+       </property>
+       <property name="maximum">
+        <number>180</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_48">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Grid Azimuth Angle: </string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxclustersampling_zigzagcluster">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>130</y>
+         <width>261</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Enable Zigzag Pattern in Sampling</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="label_49">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>40</y>
+        <width>211</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Min Distance to Perimeter (m):</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="doubleSpinBoxdistanceclusterperimeter">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>40</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <double>100000.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_50">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>70</y>
+        <width>231</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Min Distance to Exclusion Zones (m):</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="doubleSpinBoxdistanceclusterexclusion">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>70</y>
+        <width>81</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <double>100000.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBoxoutsidesamplingcluster">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>10</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Allow Outside Sampling</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupboxcluster">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>90</y>
+        <width>311</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="title">
+       <string>Cluster Selection Mode</string>
+      </property>
+      <widget class="QRadioButton" name="radiobuttonmanual">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>161</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Manual Selection</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radiobuttonrandom">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>141</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Random Selection</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_51">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>241</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Enter cluster ID (e.g., 1,5,7)</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineeditclusterid">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>141</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushbuttonvalidateclusterid">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>60</y>
+         <width>91</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Validate ID</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_52">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>211</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Number of clusters to sample:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinboxrandonclusterid">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>110</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>100000</number>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTextEdit" name="textEdit_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>240</y>
+        <width>881</width>
+        <height>271</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit {
+    background-color: #f2f5f7;
+    border: none;  /* Elimina el borde predeterminado */
+    padding: 5px;
+}
+
+QTextEdit {
+    border: 2px solid #A9A9A9;  /* Añade un borde personalizado */
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Cluster Sampling Method:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cluster sampling is a probability-based method often applied in environmental research, especially when variables are organized into distinct spatial groupings (e.g., watersheds or forest stands). In this approach, the study area is divided into clusters, each ideally mirroring the overall variability of the population, after which a subset of these clusters is randomly selected for intensive sampling. This can be done in one stage (sampling all or most elements in each chosen cluster) or multiple stages (further subdividing clusters).&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Unlike stratified sampling, where every subgroup is represented, cluster sampling focuses on a smaller number of fully sampled clusters to reduce fieldwork and costs. However, if clusters are too homogeneous (i.e., they do not reflect the full variability of the entire area), the method may compromise overall representativeness.&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;User Guide:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1. Select the shapefile containing the sampling area perimeter using the &amp;quot;Select shapefile for sampling&amp;quot; button.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2. (Optional) Add exclusion zones by clicking &amp;quot;Add Exclusion&amp;quot; and selecting shapefiles.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;3. Set the sample label prefix in the &amp;quot;Sample Label&amp;quot; field and click &amp;quot;Save Label&amp;quot;.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;4. Choose a symbol for sample points from the symbol dropdown and click &amp;quot;Save Symbol&amp;quot;.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;5. Add samples by selecting either 'Add Cluster Samples Randomly' or 'Add Cluster Samples Systematically' and follow the on-screen instructions.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Generate Shapefile</string>
+     </attribute>
+     <widget class="QFrame" name="frame_3">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>10</y>
+        <width>331</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #dee8d3;
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="pushButtonstratafinish_lines">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>160</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonstratastart_lines">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>160</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxstratalines">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>140</y>
+         <width>271</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generate Strata from Lines:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonstratafinish_voronoi">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>110</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonstratastart_voronoi">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>110</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxstratavoronoi">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>291</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generate Voronoi Strata from Points:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonstratastart_polyline">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Start</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxstratapolyline">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>271</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generate Strata from Polyline:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonstratafinish_polyline">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>60</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>301</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Strata/Cluster Shapefile Creator:</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QFrame" name="frame_7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>9</y>
+        <width>541</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+    background-color: #dee8d3;
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QCheckBox" name="checkBoxshpsamplingarea">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>291</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generate Sample Areas / Exclusion Zones:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>291</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Sample/Exclusion Shapefile Creator:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonareasampleshp">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Area</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtoncirclesampleshp">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>50</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Circle</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonfinishareashp">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>50</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBoxgenerateshpbycoordinates">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>171</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Generate by Coordinates:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEditxcoordinates">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>110</y>
+         <width>131</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_23">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X Coordinate:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_24">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Y Coordinate:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEditycoordinate">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>140</y>
+         <width>131</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonaddcoordinates">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>170</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Coordinates</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="listWidgetlistofcoordinates">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>80</y>
+         <width>181</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: white;
+</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="midLineWidth">
+        <number>1</number>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonfinishcoordinates">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>170</y>
+         <width>101</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Finish</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEditEPSGcode">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>40</y>
+         <width>101</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_25">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>40</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Code EPSG:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_26">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>60</y>
+         <width>211</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Doble click to remove coordinates:</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTextEdit" name="textEdit_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>220</y>
+        <width>881</width>
+        <height>291</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit {
+    background-color: #f2f5f7;
+    border: none;  /* Elimina el borde predeterminado */
+    padding: 5px;
+}
+
+QTextEdit {
+    border: 2px solid #A9A9A9;  /* Añade un borde personalizado */
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Shapefile Creator User Guide:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This tool is designed to facilitate the creation of sampling areas, exclusion zones, and strata (clusters) using various input methods such as on-screen drawing, coordinate entry, polylines, and points. After selecting an option, follow the on-screen prompts to complete the process.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Creating Sample Areas and Exclusion Zones:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Method 1: Generate Sample Areas / Exclusion Zones&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Select this option to create sampling areas or exclusion zones through the graphical interface. Follow the on-screen instructions after checking the box.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Method 2: Generate by Coordinates&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Select this option to create areas by manually inputting vertex coordinates. The vertices must be entered sequentially to form the desired geometric shape. Follow the on-screen instructions after checking the box.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Strata/Cluster Shapefile Creator:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;Prerequisites&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Load a sampling area in the &amp;quot;Select Shapefile for Sampling&amp;quot; field before proceeding with any of the following methods.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;1. Generate Strata from Polyline&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Creates units (features) using polylines. Ensure polylines intersect with each other and the sampling area perimeter to properly define distinct areas.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;2. Generate Voronoi Strata from Points&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Creates units using Voronoi polygons generated from point data.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;3. Generate Strata from Lines&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Enables freehand area definition. Lines must intersect with each other and the sampling area perimeter to properly define distinct areas.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;For all methods, follow the on-screen instructions after selecting the desired option.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_title">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel#label_title {
+
+    font-size: 12px;          /* Tamaño grande para impacto */
+    font-weight: bold;        /* Negrita */
+
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Sampling Methods for Spatial Data Analysis</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame_14">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>60</y>
+     <width>151</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame#frame_14 {
+    background-color: #f7d8cd;  /* Gris oscuro */
+    border: 1px solid black;    /* Borde negro opcional */
+}
+</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="pushbuttonclose">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>20</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    font-size: 20px;  /* Tamaño de la fuente */
+    font-weight: bold;  /* Negrita */
+    color: #080808;  /* Color azul */
+}</string>
+    </property>
+    <property name="text">
+     <string>×</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>10</width>
+      <height>10</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_57">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>0</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Close:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_54">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>0</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reset:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushbuttonreset">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    font-size: 20px;  /* Tamaño de la fuente */
+    font-weight: bold;  /* Negrita */
+    color: #080808;  /* Color azul */
+}</string>
+    </property>
+    <property name="text">
+     <string>⭮</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>10</width>
+      <height>10</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label_logo">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>10</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_59">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>10</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Sampling Time</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

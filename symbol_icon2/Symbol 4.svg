@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28.59" height="28.59"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:qgis="http://www.qgis.org/gml"
+     version="1.1">
+  <circle cx="14.29" cy="14.29" r="14.12"
+        fill="param(fill) #ffffff"
+        stroke="param(outline) #373435"
+        stroke-width="param(outline-width) 0.5"
+        stroke-miterlimit="2.61313"
+        stroke-opacity="param(outline-opacity) 1"/>
+  <circle cx="14.29" cy="14.29" r="4.66"
+        fill="param(fill) none"
+        stroke="param(outline) #373435"
+        stroke-width="param(outline-width) 0.5"
+        stroke-opacity="param(outline-opacity) 1"/>
+  <line x1="0.17" y1="28.42" x2="28.42" y2="0.17"
+        stroke="param(outline) #373435"
+        stroke-width="param(outline-width) 0.5"
+        stroke-opacity="param(outline-opacity) 1"/>
+  <line x1="0.17" y1="0.17" x2="28.42" y2="28.42"
+        stroke="param(outline) #373435"
+        stroke-width="param(outline-width) 0.5"
+        stroke-opacity="param(outline-opacity) 1"/>
+</svg>

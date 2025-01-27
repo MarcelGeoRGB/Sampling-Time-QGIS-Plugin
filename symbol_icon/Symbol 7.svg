@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.657362in" height="0.657402in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 40.09 40.1"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#373435;stroke-width:2;stroke-miterlimit:2.61313}
+    .fil0 {fill:none}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <circle class="fil0 str0" cx="20.05" cy="20.05" r="6.62"/>
+  <line class="fil0 str0" x1="20.05" y1="13.43" x2="20.05" y2= "0" />
+  <line class="fil0 str0" x1="26.66" y1="20.05" x2="40.09" y2= "20.05" />
+  <line class="fil0 str0" x1="20.05" y1="26.67" x2="20.05" y2= "40.1" />
+  <line class="fil0 str0" x1="13.43" y1="20.05" x2="-0" y2= "20.05" />
+ </g>
+</svg>
