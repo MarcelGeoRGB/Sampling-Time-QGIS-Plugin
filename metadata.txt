@@ -2,26 +2,17 @@
 name=Sampling Time
 qgisMinimumVersion=3.16.4
 description=Performs multiple sampling methods on shapefile layers
-version=1
+version=1.0.0
 author=Marcel A. Cedrez
 email=marcel.a@giscourse.online
 about=The "Sampling Time" plugin allows users to perform various sampling methods, including judgmental, random, systematic, stratified, and cluster sampling, on shapefile layers. It generates a shapefile with the coordinates of the sampled points, including labels and customizable symbology. Additionally, users can create sampling and exclusion zones, as well as stratified and cluster sampling areas.
-
-homepage= https://giscourse.online/qgis-sampling-time-plugin
+homepage=https://giscourse.online/qgis-sampling-time-plugin
 tracker=https://github.com/MarcelGeoRGB/Sampling-Time-QGIS-Plugin/issues
 repository=https://github.com/MarcelGeoRGB/Sampling-Time-QGIS-Plugin
-
 hasProcessingProvider=no
-
-tags=python, vector points, sampling, sampling design, point sampling, sampling plan, spatial analysis, sampling methods, judgmental sampling, random sampling, systematic sampling, stratified sampling, cluster sampling, geospatial sampling, shapefile generation, exclusion zones, strata creation, data collection, environmental studies, urban planning, resource management, geospatial workflow, geostatistics
-homepage=https://giscourse.online/qgis-sampling-time-plugin/
+tags=python,vector points,sampling,sampling design,point sampling,sampling plan,spatial analysis,sampling methods,judgmental sampling,random sampling,systematic sampling,stratified sampling,cluster sampling,geospatial sampling,shapefile generation,exclusion zones,strata creation,data collection,environmental studies,urban planning,resource management,geospatial workflow,geostatistics
 category=Vector
 icon=icon.png
 experimental=False
 deprecated=False
 server=False
-
-
-
-
-
