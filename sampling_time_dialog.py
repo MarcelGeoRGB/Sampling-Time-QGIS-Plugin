@@ -4,9 +4,9 @@
  SamplingTime
                                      A QGIS plugin
  A comprehensive QGIS plugin for automated area sampling using judgmental,
- random, systematic, stratified, and cluster techniques. It enables the 
- creation of sampling areas, exclusion zones, customizable stratification 
- and clustering, and generates shapefiles for outputs. Designed for precision 
+ random, systematic, stratified, and cluster techniques. It enables the
+ creation of sampling areas, exclusion zones, customizable stratification
+ and clustering, and generates shapefiles for outputs. Designed for precision
  and adaptability in geospatial workflows.
  -------------------
         begin                : 2024-09-29
@@ -22,11 +22,6 @@
  *   modify it under the terms of the GNU General Public License as        *
  *   published by the Free Software Foundation, either version 3 of the    *
  *   License, or (at your option) any later version.                       *
- *                                                                         *
- *   Sampling Time Plugin is distributed in the hope that it will be       *
- *   useful, but WITHOUT ANY WARRANTY; without even the implied warranty   *
- *   of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the       *
- *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
  *   along with Sampling Time Plugin. If not, see                         *
@@ -272,6 +267,17 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         self.reset_manager = ResetFunction(self)
         self.pushbuttonreset.clicked.connect(self.reset_manager.full_plugin_reset)
 
+        # Initialize module attributes to None to ensure they exist from the start
+        self.area_exclusion = None
+        self.judgmental_sampling = None
+        self.random_sampling = None
+        self.systematic_sampling = None
+        self.stratified_sampling = None # Corresponds to StratifiedRandomSampling
+        self.cluster_sampling = None # Corresponds to ClusterRandomSampling
+        self.stratified_systematic_sampling = None
+        self.cluster_systematic_sampling = None
+        self.stratified_shapefile = None
+
         # Initialize the SamplingLayerModule with relevant UI components
         self.layer_module = SamplingLayerModule(
             self.comboBoxshpsampling,
@@ -285,12 +291,15 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         )
 
         # Populate the shapefile layers combo box
+        # This triggers currentIndexChanged, which will now call _update_sampling_modules_layer,
+        # but the attributes already exist (as None)
         self.layer_module.populate_shapefile_layers()
 
         # Initialize controls and set up UI connections and additional modules
         self.initialize_controls()
-        self.setup_ui_connections()
-        self.setup_modules()
+        self.setup_ui_connections() # Connects _update_sampling_modules_layer to currentIndexChanged
+        self.setup_modules() # <-- This is where the created objects are assigned to the attributes (self.systematic_sampling = SystematicSampling(...), etc.)
+
 
         # Configure the spin box for angle input with a range of 0 to 180 degrees
         self.spinBoxanglesystematically.setRange(0, 180)
@@ -328,7 +337,7 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         )
 
         self.label_logo.setPixmap(scaled_pixmap)
-    
+
     def keyPressEvent(self, event):
         """Override keyPressEvent to prevent Enter key from opening symbol folder"""
         if event.key() == Qt.Key_Return or event.key() == Qt.Key_Enter:
@@ -387,6 +396,9 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         for cb in self.all_function_checkboxes:
             cb.stateChanged.connect(self.on_function_checkbox_changed)
 
+        # Centralized connection for the Validate ID button (Cluster)
+        self.pushbuttonvalidateclusterid.clicked.connect(self._on_cluster_validate_clicked)
+
         # Connect specific checkboxes to their dedicated handlers
         self.checkBoxaddsamplesmanually.stateChanged.connect(
             self.on_addsamplesmanually_changed
@@ -401,7 +413,11 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
             self.on_addsamplesrandomly_changed
         )
 
+        # Connect the change of the selected layer in the combo box to update all modules
+        self.comboBoxshpsampling.currentIndexChanged.connect(self._update_sampling_modules_layer)
+
         # Initialize and connect random sampling module
+        # Note: self.random_sampling is initialized to None at the start of __init__
         self.random_sampling = RandomSampling(self.iface, self)
         self.spinBoxnumberofsamples.valueChanged.connect(self.update_random_parameters)
         self.doubleSpinBoxdistanceperimeter.valueChanged.connect(self.update_random_parameters)
@@ -413,6 +429,7 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         self.checkBoxoutsidesamplingrandom.stateChanged.connect(self.update_random_parameters)
 
         # Initialize and connect stratified random sampling module
+        # Note: self.stratified_sampling is initialized to None at the start of __init__
         self.stratified_sampling = StratifiedRandomSampling(self.iface, self)
         self.spinBoxnumberofstratifiedsamples.valueChanged.connect(self.update_stratified_parameters)
         self.doubleSpinBoxdistancestratifiedsamples.valueChanged.connect(self.update_stratified_parameters)
@@ -426,6 +443,7 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         )
 
         # Initialize and connect cluster random sampling module
+        # Note: self.cluster_sampling is initialized to None at the start of __init__
         self.cluster_sampling = ClusterRandomSampling(self.iface, self)
         self.spinBoxnumberofclustersamples.valueChanged.connect(self.update_cluster_parameters)
         self.doubleSpinBoxdistanceclustersamples.valueChanged.connect(self.update_cluster_parameters)
@@ -439,6 +457,7 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         )
 
         # Initialize and connect stratified systematic sampling module
+        # Note: self.stratified_systematic_sampling is initialized to None at the start of __init__
         self.stratified_systematic_sampling = StratifiedSystematicSampling(self.iface, self)
         self.checkBoxaddstratifiedsamplessystematically.stateChanged.connect(
             self.on_addstratifiedsystematic_changed
@@ -454,6 +473,7 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         )
 
         # Initialize and connect cluster systematic sampling module
+        # Note: self.cluster_systematic_sampling is initialized to None at the start of __init__
         self.cluster_systematic_sampling = ClusterSystematicSampling(self.iface, self)
         self.checkBoxaddclustersamplessystematically.stateChanged.connect(
             self.on_addclustersystematic_changed
@@ -479,6 +499,97 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         # Connect license button if it exists
         if hasattr(self, 'pushButtonlicense'):
             self.pushButtonlicense.clicked.connect(self.open_license_file)
+
+    def _update_sampling_modules_layer(self, index):
+        """
+        Finds the layer selected in comboBoxshpsampling and passes it to all
+        sampling modules that need it.
+        """
+        # Do nothing if the index is invalid (empty list or intermediate reset)
+        if index < 0 or self.comboBoxshpsampling.count() == 0:
+            # Optional: Clear layer references in modules if the list is empty
+            if self.random_sampling: self.random_sampling.set_sampling_area(None)
+            if self.systematic_sampling: self.systematic_sampling.set_sampling_area(None)
+            if self.stratified_sampling: self.stratified_sampling.set_sampling_area(None)
+            if self.cluster_sampling: self.cluster_sampling.set_sampling_area(None)
+            if self.stratified_systematic_sampling: self.stratified_systematic_sampling.set_sampling_area(None)
+            if self.cluster_systematic_sampling: self.cluster_systematic_sampling.set_sampling_area(None)
+            # Also clear the EPSG field if no layer is selected
+            self.lineEditEPSGcode.clear()
+            return
+
+        # Get the name of the selected layer (without the EPSG code if present)
+        layer_display_name = self.comboBoxshpsampling.currentText()
+        layer_name = layer_display_name.split(" [")[0]
+
+        sampling_layer = None
+        # Find the actual layer object in the QGIS project by its name
+        for layer in QgsProject.instance().mapLayers().values():
+            if layer.name() == layer_name:
+                sampling_layer = layer
+                break
+
+        # If the layer was found, pass it to the module instances
+        if sampling_layer:
+            print(f"Layer selected in combobox: {sampling_layer.name()}")
+            # Ensure modules exist before calling their method
+            if self.random_sampling:
+                self.random_sampling.set_sampling_area(sampling_layer)
+            if self.systematic_sampling:
+                 self.systematic_sampling.set_sampling_area(sampling_layer)
+            if self.stratified_sampling:
+                self.stratified_sampling.set_sampling_area(sampling_layer)
+            if self.cluster_sampling:
+                self.cluster_sampling.set_sampling_area(sampling_layer)
+                # Optional: Clear previously validated cluster IDs when changing layers
+                self.cluster_sampling.selected_clusters = []
+                self.lineeditclusterid.clear() # Clear the text box if you change layers
+                self.spinboxrandonclusterid.setValue(0) # Reset the spinbox
+                self.radiobuttonmanual.setChecked(False) # Uncheck selection modes
+                self.radiobuttonrandom.setChecked(False)
+
+            if self.stratified_systematic_sampling:
+                self.stratified_systematic_sampling.set_sampling_area(sampling_layer)
+            if self.cluster_systematic_sampling:
+                self.cluster_systematic_sampling.set_sampling_area(sampling_layer)
+                 # Optional: Clear previously validated cluster IDs when changing layers
+                self.cluster_systematic_sampling.selected_clusters = []
+                self.lineeditclusterid.clear() # Clear the text box if you change layers
+                self.spinboxrandonclusterid.setValue(0) # Reset the spinbox
+                self.radiobuttonmanual.setChecked(False) # Uncheck selection modes
+                self.radiobuttonrandom.setChecked(False)
+
+
+            # Update the EPSG code text field
+            if sampling_layer.crs().isValid():
+                 self.lineEditEPSGcode.setText(sampling_layer.crs().authid().split(':')[-1])
+            else:
+                 self.lineEditEPSGcode.clear()
+
+        else:
+            print(f"Layer not found for selected name: {layer_name}")
+            # Clear references if the layer is not found (e.g., if it was removed)
+            if self.random_sampling: self.random_sampling.set_sampling_area(None)
+            if self.systematic_sampling: self.systematic_sampling.set_sampling_area(None)
+            if self.stratified_sampling: self.stratified_sampling.set_sampling_area(None)
+            if self.cluster_sampling:
+                self.cluster_sampling.set_sampling_area(None)
+                self.cluster_sampling.selected_clusters = []
+                self.lineeditclusterid.clear()
+                self.spinboxrandonclusterid.setValue(0)
+                self.radiobuttonmanual.setChecked(False)
+                self.radiobuttonrandom.setChecked(False)
+            if self.stratified_systematic_sampling: self.stratified_systematic_sampling.set_sampling_area(None)
+            if self.cluster_systematic_sampling:
+                self.cluster_systematic_sampling.set_sampling_area(None)
+                self.cluster_systematic_sampling.selected_clusters = []
+                self.lineeditclusterid.clear()
+                self.spinboxrandonclusterid.setValue(0)
+                self.radiobuttonmanual.setChecked(False)
+                self.radiobuttonrandom.setChecked(False)
+
+            self.lineEditEPSGcode.clear()
+
 
     def open_symbol_folder(self):
         """
@@ -556,7 +667,8 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
             self.spinBoxangleclustersystematically,
             self.pushButtonclustersystematicstart,
             self.pushButtonclustersystematicsave,
-            self.checkBoxclustersampling_zigzagcluster
+            self.checkBoxclustersampling_zigzagcluster,
+            self.pushbuttonvalidateclusterid
         ]
 
         # Disable each control in the list
@@ -711,10 +823,14 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
                 exclusion_layers.append(layer)
 
         # Configure the stratified sampling module with selected layers and parameters
-        self.stratified_sampling.set_sampling_area(sampling_layer)
-        self.stratified_sampling.set_exclusion_zones(exclusion_layers)
-        self.stratified_sampling.set_parameters()
-        
+        if self.stratified_sampling:
+            self.stratified_sampling.set_sampling_area(sampling_layer)
+            self.stratified_sampling.set_exclusion_zones(exclusion_layers)
+            self.stratified_sampling.set_parameters()
+        else:
+             QMessageBox.warning(self, "Initialization Error", "Stratified random sampling module is not initialized.")
+
+
     def start_cluster_sampling(self):
         """
         Initiates cluster random sampling based on the current settings and selected layers.
@@ -744,10 +860,14 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
                 exclusion_layers.append(layer)
 
         # Configure the cluster sampling module with selected layers and parameters
-        self.cluster_sampling.set_sampling_area(sampling_layer)
-        self.cluster_sampling.set_exclusion_zones(exclusion_layers)
-        self.cluster_sampling.set_parameters()
-       
+        if self.cluster_sampling:
+            self.cluster_sampling.set_sampling_area(sampling_layer)
+            self.cluster_sampling.set_exclusion_zones(exclusion_layers)
+            self.cluster_sampling.set_parameters()
+        else:
+             QMessageBox.warning(self, "Initialization Error", "Cluster random sampling module is not initialized.")
+
+
     def start_systematic_sampling(self):
         """
         Initiates systematic sampling based on the current settings and selected layers.
@@ -777,17 +897,21 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
                 exclusion_layers.append(layer)
 
         # Configure the systematic sampling module with selected layers and parameters
-        self.systematic_sampling.set_sampling_area(sampling_layer)
-        self.systematic_sampling.set_exclusion_zones(exclusion_layers)
-        self.systematic_sampling.set_parameters(
-            spacing_x=self.doubleSpinBoxdistancexsamples.value(),
-            spacing_y=self.doubleSpinBoxdistanceysamples.value(),
-            label_root=self.layer_module.sample_label_root,
-            perimeter_buffer_sample_area=self.doubleSpinBoxdistanceperimetersamplearea.value(),
-            perimeter_buffer_exclusion_area=self.doubleSpinBoxdistanceperimeterexclusionarea.value()
-        )
-        # Start the systematic sampling process
-        self.systematic_sampling.start_sampling()
+        if self.systematic_sampling:
+            self.systematic_sampling.set_sampling_area(sampling_layer)
+            self.systematic_sampling.set_exclusion_zones(exclusion_layers)
+            self.systematic_sampling.set_parameters(
+                spacing_x=self.doubleSpinBoxdistancexsamples.value(),
+                spacing_y=self.doubleSpinBoxdistanceysamples.value(),
+                label_root=self.layer_module.sample_label_root,
+                perimeter_buffer_sample_area=self.doubleSpinBoxdistanceperimetersamplearea.value(),
+                perimeter_buffer_exclusion_area=self.doubleSpinBoxdistanceperimeterexclusionarea.value()
+            )
+            # Start the systematic sampling process
+            self.systematic_sampling.start_sampling()
+        else:
+            QMessageBox.warning(self, "Initialization Error", "Systematic sampling module is not initialized.")
+
 
     def save_systematic_sampling(self):
         """
@@ -813,9 +937,11 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         )
         if not ok or not filename:
             return
-
-        # Save the samples using the systematic sampling module
-        self.systematic_sampling.save_samples(output_dir, filename)
+        if self.systematic_sampling:
+            # Save the samples using the systematic sampling module
+            self.systematic_sampling.save_samples(output_dir, filename)
+        else:
+             QMessageBox.warning(self, "Initialization Error", "Systematic sampling module is not initialized.")
 
     def save_stratified_systematic_sampling(self):
         """
@@ -841,9 +967,11 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         )
         if not ok or not filename:
             return
-
-        # Save the samples using the stratified systematic sampling module
-        self.stratified_systematic_sampling.save_samples(output_dir, filename)
+        if self.stratified_systematic_sampling:
+            # Save the samples using the stratified systematic sampling module
+            self.stratified_systematic_sampling.save_samples(output_dir, filename)
+        else:
+             QMessageBox.warning(self, "Initialization Error", "Stratified systematic sampling module is not initialized.")
 
     def save_cluster_systematic_sampling(self):
         """
@@ -869,9 +997,11 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
         )
         if not ok or not filename:
             return
-
-        # Save the samples using the cluster systematic sampling module
-        self.cluster_systematic_sampling.save_samples(output_dir, filename)
+        if self.cluster_systematic_sampling:
+            # Save the samples using the cluster systematic sampling module
+            self.cluster_systematic_sampling.save_samples(output_dir, filename)
+        else:
+             QMessageBox.warning(self, "Initialization Error", "Cluster systematic sampling module is not initialized.")
 
     def start_stratified_systematic_sampling(self):
         """
@@ -902,17 +1032,20 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
                 exclusion_layers.append(layer)
 
         # Configure the stratified systematic sampling module with selected layers and parameters
-        self.stratified_systematic_sampling.set_sampling_area(sampling_layer)
-        self.stratified_systematic_sampling.set_exclusion_zones(exclusion_layers)
-        self.stratified_systematic_sampling.set_parameters(
-            spacing_x=self.doubleSpinBoxdistancestratifiedxsamples.value(),
-            spacing_y=self.doubleSpinBoxdistancestratifiedysamples.value(),
-            label_root=self.layer_module.sample_label_root,
-            perimeter_buffer_sample_area=self.doubleSpinBoxdistancestratifiedperimeter.value(),
-            perimeter_buffer_exclusion_area=self.doubleSpinBoxdistancestratifiedexclusion.value()
-        )
-        # Start the stratified systematic sampling process
-        self.stratified_systematic_sampling.start_sampling()
+        if self.stratified_systematic_sampling:
+            self.stratified_systematic_sampling.set_sampling_area(sampling_layer)
+            self.stratified_systematic_sampling.set_exclusion_zones(exclusion_layers)
+            self.stratified_systematic_sampling.set_parameters(
+                spacing_x=self.doubleSpinBoxdistancestratifiedxsamples.value(),
+                spacing_y=self.doubleSpinBoxdistancestratifiedysamples.value(),
+                label_root=self.layer_module.sample_label_root,
+                perimeter_buffer_sample_area=self.doubleSpinBoxdistancestratifiedperimeter.value(),
+                perimeter_buffer_exclusion_area=self.doubleSpinBoxdistancestratifiedexclusion.value()
+            )
+            # Start the stratified systematic sampling process
+            self.stratified_systematic_sampling.start_sampling()
+        else:
+             QMessageBox.warning(self, "Initialization Error", "Stratified systematic sampling module is not initialized.")
 
     def start_cluster_systematic_sampling(self):
         """
@@ -943,17 +1076,21 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
                 exclusion_layers.append(layer)
 
         # Configure the cluster systematic sampling module with selected layers and parameters
-        self.cluster_systematic_sampling.set_sampling_area(sampling_layer)
-        self.cluster_systematic_sampling.set_exclusion_zones(exclusion_layers)
-        self.cluster_systematic_sampling.set_parameters(
-            spacing_x=self.doubleSpinBoxdistanceclusterxsamples.value(),
-            spacing_y=self.doubleSpinBoxdistanceclusterysamples.value(),
-            label_root=self.layer_module.sample_label_root,
-            perimeter_buffer_sample_area=self.doubleSpinBoxdistanceclusterperimeter.value(),
-            perimeter_buffer_exclusion_area=self.doubleSpinBoxdistanceclusterexclusion.value()
-        )
-        # Start the cluster systematic sampling process
-        self.cluster_systematic_sampling.start_sampling()
+        if self.cluster_systematic_sampling:
+            self.cluster_systematic_sampling.set_sampling_area(sampling_layer)
+            self.cluster_systematic_sampling.set_exclusion_zones(exclusion_layers)
+            self.cluster_systematic_sampling.set_parameters(
+                spacing_x=self.doubleSpinBoxdistanceclusterxsamples.value(),
+                spacing_y=self.doubleSpinBoxdistanceclusterysamples.value(),
+                label_root=self.layer_module.sample_label_root,
+                perimeter_buffer_sample_area=self.doubleSpinBoxdistanceclusterperimeter.value(),
+                perimeter_buffer_exclusion_area=self.doubleSpinBoxdistanceclusterexclusion.value()
+            )
+            # Start the cluster systematic sampling process
+            self.cluster_systematic_sampling.start_sampling()
+        else:
+             QMessageBox.warning(self, "Initialization Error", "Cluster systematic sampling module is not initialized.")
+
 
     def on_checkBoxaddsamplessystematically_stateChanged(self, state):
         """
@@ -1195,12 +1332,25 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
 
             # Reset all other sampling methods
             self.reset_manager.reset_all()
-            if not self.checkBoxaddsamplesrandomly.isChecked():
+            if self.random_sampling and not self.checkBoxaddsamplesrandomly.isChecked():
                 self.random_sampling.disable_controls()
             # Ensure the sender checkbox remains checked and doesn't interfere with others
             sender.blockSignals(True)
             sender.setChecked(True)
             sender.blockSignals(False)
+
+    def _on_cluster_validate_clicked(self):
+        """
+        Handles the click event of the 'Validate ID' button for cluster sampling.
+        Calls the validate_cluster_selection method on the active cluster sampling module.
+        """
+        if self.cluster_sampling and self.checkBoxaddclustersamplesrandomly.isChecked():
+            self.cluster_sampling.validate_cluster_selection()
+        elif self.cluster_systematic_sampling and self.checkBoxaddclustersamplessystematically.isChecked():
+            self.cluster_systematic_sampling.validate_cluster_selection()
+        else:
+            QMessageBox.warning(self, "Selection Error", "No cluster sampling method is selected or initialized.")
+
 
     def closeEvent(self, event):
         """
@@ -1279,28 +1429,28 @@ class SamplingDialog(QtWidgets.QDialog, FORM_CLASS):
             layout.addWidget(title_label)
 
             # ===== FULL TEXT, WITHOUT ELLIPSIS =====
-            info_text = """<b>A comprehensive QGIS plugin for automated area sampling 
-using judgmental, random, systematic, stratified, and cluster techniques. 
-This plugin enables the creation of sampling areas, exclusion zones, customizable 
-stratification and clustering, and generates shapefiles for outputs. 
+            info_text = """<b>A comprehensive QGIS plugin for automated area sampling
+using judgmental, random, systematic, stratified, and cluster techniques.
+This plugin enables the creation of sampling areas, exclusion zones, customizable
+stratification and clustering, and generates shapefiles for outputs.
 Designed for precision and adaptability in geospatial workflows.</b><br><br>
 
-Version: 0.1<br>
+Version: 1.1.0 2025-05-19<br>
 Begin: 2024-09-29<br>
 Author: Marcel A. Cedrez Dacosta<br>
 Contact: marcel.a@giscourse.online<br><br>
 
-<b>How to use the plugin:</b> 
+<b>How to use the plugin:</b>
 <a href="https://giscourse.online/qgis-sampling-time-plugin/">
 https://giscourse.online/qgis-sampling-time-plugin/
 </a><br><br>
 
-License: This plugin is free software: you can redistribute it and/or modify it under 
-the terms of the GNU General Public License as published by the Free Software Foundation, 
+License: This plugin is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software Foundation,
 either version 3 of the License, or (at your option) any later version.<br><br>
 
-Sampling Time Plugin is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
-without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+Sampling Time Plugin is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the GNU General Public License for more details.
 """
 

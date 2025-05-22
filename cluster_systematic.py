@@ -209,7 +209,6 @@ class ClusterSystematicSampling:
             self.dialog.radiobuttonmanual.toggled.connect(self.on_manual_selection_toggled)
             self.dialog.radiobuttonrandom.toggled.connect(self.on_random_selection_toggled)
             self.dialog.lineeditclusterid.textChanged.connect(self.on_cluster_text_changed)
-            self.dialog.pushbuttonvalidateclusterid.clicked.connect(self.validate_cluster_selection)
             self.systematic_signals_connected = True
 
     def disconnect_systematic_signals(self):
@@ -218,7 +217,6 @@ class ClusterSystematicSampling:
             self.dialog.radiobuttonmanual.toggled.disconnect(self.on_manual_selection_toggled)
             self.dialog.radiobuttonrandom.toggled.disconnect(self.on_random_selection_toggled)
             self.dialog.lineeditclusterid.textChanged.disconnect(self.on_cluster_text_changed)
-            self.dialog.pushbuttonvalidateclusterid.clicked.disconnect(self.validate_cluster_selection)
             self.systematic_signals_connected = False
 
     def on_comboBoxshpsampling_currentIndexChanged(self, index):

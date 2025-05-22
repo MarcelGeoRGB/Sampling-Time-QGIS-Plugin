@@ -5,12 +5,14 @@
      version="1.1">
   <circle cx="12.4" cy="12.4" r="12.25"
         fill="param(fill) #ffffff"
+        fill-opacity="param(fill-opacity) 1"
         stroke="param(outline) #373435"
         stroke-width="param(outline-width) 0.5"
         stroke-miterlimit="2.61313"
         stroke-opacity="param(outline-opacity) 1"/>
   <circle cx="12.4" cy="12.4" r="4.04"
         fill="param(fill) none"
+        fill-opacity="param(fill-opacity) 1"
         stroke="param(outline) #373435"
         stroke-width="param(outline-width) 0.5"
         stroke-opacity="param(outline-opacity) 1"/>

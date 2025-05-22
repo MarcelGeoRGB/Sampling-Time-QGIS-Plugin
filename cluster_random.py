@@ -180,7 +180,6 @@ class ClusterRandomSampling:
         self.selected_clusters = []  # List of chosen clusters
         self.ui.radiobuttonmanual.toggled.connect(self.on_manual_selection_toggled)
         self.ui.radiobuttonrandom.toggled.connect(self.on_random_selection_toggled)
-        self.ui.pushbuttonvalidateclusterid.clicked.connect(self.validate_cluster_selection)
 
         # Disable these controls until certain conditions are met
         self.ui.lineeditclusterid.setEnabled(False)
@@ -367,14 +366,11 @@ class ClusterRandomSampling:
             self.ui.radiobuttonrandom.toggled.disconnect(self.on_random_selection_toggled)
         except TypeError:
             pass
-        try:
-            self.ui.pushbuttonvalidateclusterid.clicked.disconnect(self.validate_cluster_selection)
         except TypeError:
             pass
 
         self.ui.radiobuttonmanual.toggled.connect(self.on_manual_selection_toggled)
         self.ui.radiobuttonrandom.toggled.connect(self.on_random_selection_toggled)
-        self.ui.pushbuttonvalidateclusterid.clicked.connect(self.validate_cluster_selection)
         self.random_signals_connected = True
 
     # Disconnects signals for random sampling
@@ -388,8 +384,6 @@ class ClusterRandomSampling:
                 self.ui.radiobuttonrandom.toggled.disconnect(self.on_random_selection_toggled)
             except TypeError:
                 pass
-            try:
-                self.ui.pushbuttonvalidateclusterid.clicked.disconnect(self.validate_cluster_selection)
             except TypeError:
                 pass
             self.random_signals_connected = False

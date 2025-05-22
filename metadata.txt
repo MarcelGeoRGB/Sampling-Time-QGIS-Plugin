@@ -2,7 +2,7 @@
 name=Sampling Time
 qgisMinimumVersion=3.16.4
 description=Performs multiple sampling methods on shapefile layers
-version=1.0.0
+version=1.1.0
 author=Marcel A. Cedrez
 email=marcel.a@giscourse.online
 about=The "Sampling Time" plugin allows users to perform various sampling methods, including judgmental, random, systematic, stratified, and cluster sampling, on shapefile layers. It generates a shapefile with the coordinates of the sampled points, including labels and customizable symbology. Additionally, users can create sampling and exclusion zones, as well as stratified and cluster sampling areas.

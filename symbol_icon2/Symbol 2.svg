@@ -5,6 +5,7 @@
      version="1.1">
   <rect x="0.17" y="0.17" width="28.46" height="28.46"
         fill="param(fill) #ffffff"
+        fill-opacity="param(fill-opacity) 1"
         stroke="param(outline) #373435"
         stroke-width="param(outline-width) 0.5"
         stroke-miterlimit="2.61313"

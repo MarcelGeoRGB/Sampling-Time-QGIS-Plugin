@@ -5,12 +5,14 @@
      version="1.1">
   <circle cx="14.29" cy="14.29" r="14.12"
         fill="param(fill) #ffffff"
+        fill-opacity="param(fill-opacity) 1"
         stroke="param(outline) #373435"
         stroke-width="param(outline-width) 0.5"
         stroke-miterlimit="2.61313"
         stroke-opacity="param(outline-opacity) 1"/>
   <circle cx="14.29" cy="14.29" r="4.66"
         fill="param(fill) none"
+        fill-opacity="param(fill-opacity) 1"
         stroke="param(outline) #373435"
         stroke-width="param(outline-width) 0.5"
         stroke-opacity="param(outline-opacity) 1"/>
@@ -19,7 +21,7 @@
         stroke-width="param(outline-width) 0.5"
         stroke-opacity="param(outline-opacity) 1"/>
   <line x1="0.17" y1="0.17" x2="28.42" y2="28.42"
-        stroke="param(outline) #373435"
+        stroke="param(outline) #373445"
         stroke-width="param(outline-width) 0.5"
         stroke-opacity="param(outline-opacity) 1"/>
 </svg>
